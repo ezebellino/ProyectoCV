@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mi Currículum Vitae</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Ezequiel Bellino</h1>
+      <p>Estudiante de Diseño Web y Programación</p>
+      <nav>
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#educacion">Educación</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="foto-flotante">
+        <img src="Zeqe.jpg" alt="Tu foto">
+      </div>
+      
+      <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>¡Hola! Me llamo Ezequiel y soy un estudiante de Programación.</p>
+        <p>Me apasiona aprendes cosas nuevas, y en mi tiempo libre me gusta hacer deportes y ejercicio!.</p>
+      </section>
+      <section id="experiencia">
+        <h2>Experiencia</h2>
+        <ul>
+          <li>
+            <h3>[AUBASA]</h3>
+            <p>[Mantenimiento eléctrico y de Sistemas] | [12/12/2019] - [30/03/2023]</p>
+            <ul>
+              <li>[Mantenimiento de aparatos eléctricos de Estación de Peaje]</li>
+              <li>[Reparación y mantención de PC con sistema de cobro.]</li>
+              <li>[Realización de tareas varias para el avance tecnológico de la Empresa en la estación.]</li>
+            </ul>
+          </li>
+          <li>
+            <h3>[ACA]</h3>
+            <p>[Despachador de combustible] | [20/11/2011] - [26/02/2012]</p>
+            <ul>
+              <li>[Despachar combustible a vehículos que requieran del servicio.]</li>
+              <li>[Mantenimiento higiénico de "playa" donde rodan los vehículos.]</li>
+              <li>[Medición de fosas de combustible para llevar un seguimiento.]</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="educacion">
+        <h2>Educación</h2>
+        <ul>
+          <li>
+            <h3>[CENEDI]</h3>
+            <p>[Electricista] | [6/6/2018] - [10/9/2018]</p>
+          </li>
+          <li>
+            <h3>[Udemy]</h3>
+            <p>[Tecnico en reparación y mantenimiento de PC] | [26/02/2011] - [30/06/2011]</p>
+          </li>
+        </ul>
+      </section>
+      <section id="habilidades">
+        <h2>Habilidades</h2>
+        <h3>Hacé click en las diferentes habilidades para saber más</h3>
+        <ul>
+          <li class="habilidad">
+            <span class="nombre">Perceverante</span>
+            <span class="descripcion">Percevera y triunfarás. En ocasiones es necesario continuar hasta dar con el causal del problema a solucionar, pero tambien es necesario alejarse, distenderse y volverlo a retomar luego de una pausa con más claridad mental.</span>
+          </li>
+          <li class="habilidad">
+            <span class="nombre">Bueno para sociabilizar</span>
+            <span class="descripcion">Disfruto mucho de trabajar con compañeros, soy muy sociable y me agrada conocer gente. Me gusta el trabajo en equipo.</span>
+          </li>
+          <li class="habilidad">
+            <span class="nombre">Aprendizaje constante</span>
+            <span class="descripcion">Me gusta aprender cosas nuevas, no quedarme con lo ya aprendido sino ir un poco más allá. Preguntar y averiguar.</span>
+          </li>
+        </ul>
+      </section>      
+    </main>
+    <footer class="elemento">
+      <p>Contacto: [ezebellino@hotmail.com] | Teléfono: [+5492245506008] </p>
+    </footer>
+    <script src="Javascript.js"></script>
+    <script>// Detectamos el desplazamiento del usuario.
+      window.onscroll = function() {stickyNav()};
+      
+      // Obtenemos el menú de navegación.
+      var nav = document.querySelector("nav");
+      
+      // Obtenemos la posición del menú de navegación.
+      var sticky = nav.offsetTop;
+      
+      // Añadimos la clase "sticky" al menú de navegación cuando se desplaza más allá de su posición inicial.
+      function stickyNav() {
+        if (window.pageYOffset >= sticky) {
+          nav.classList.add("sticky");
+        } else {
+          nav.classList.remove("sticky");
+        }
+      }
+      
+      // Agregamos un evento "click" a todos los enlaces internos.
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+        
+            // Obtenemos el destino del enlace.
+            const target = document.querySelector(this.getAttribute('href'));
+        
+            // Hacemos un desplazamiento suave a la posición del objetivo.
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+        
+      
+      // Agregamos un evento "click" a cada habilidad.
+      document.querySelectorAll(".habilidad").forEach(habilidad => {
+          habilidad.addEventListener('click', function (e) {
+        
+            // Obtenemos la descripción de la habilidad.
+            const descripcion = this.querySelector(".descripcion");
+        
+            // Cambiamos la visibilidad de la descripción de la habilidad.
+            if (descripcion.style.display === "none") {
+              descripcion.style.display = "block";
+            } else {
+              descripcion.style.display = "none";
+            }
+          });
+        });
+
+        document.querySelectorAll(".habilidad").forEach(habilidad => {
+  habilidad.addEventListener('click', function (e) {
+    // Obtenemos la descripción de la habilidad.
+    const descripcion = this.querySelector(".descripcion");
+    // Cambiamos la visibilidad de la descripción de la habilidad.
+    this.classList.toggle("click");
+  });
+});
+
+      </script>
+    <script>
+      // Obtenemos el color de fondo de la página.
+      var backgroundColor = window.getComputedStyle(document.body).backgroundColor;
+      
+      // Convertimos el color en un valor RGB.
+      var rgbValues = backgroundColor.match(/\d+/g);
+      var brightness = (299*rgbValues[0] + 587*rgbValues[1] + 114*rgbValues[2])/1000;
+      
+      // Obtenemos todos los elementos de texto en la página.
+      var textElements = document.querySelectorAll("body *");
+      
+      // Cambiamos el color del texto según si el fondo es oscuro o claro.
+      if (brightness < 128) {
+        for (var i = 0; i < textElements.length; i++) {
+          textElements[i].style.color = "#fff";
+        }
+      } else {
+        for (var i = 0; i < textElements.length; i++) {
+          textElements[i].style.color = "#000";
+        }
+      }
+    </script>
+    
+  </body>
+</html>
